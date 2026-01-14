@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "http://YOUR_GCP_VM_IP:3000/api/:match*"
+      "destination": "http://34.177.110.101:3000/api/:match*"
     }
   ]
 }
