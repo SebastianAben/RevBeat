@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "http://YOUR_GCP_VM_IP:3000/api/:match*"
+    }
+  ]
+}
