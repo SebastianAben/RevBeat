@@ -57,7 +57,7 @@ function App() {
           city: formData.city,
           mood: formData.mood,
           duration: formData.duration,
-          localTime: formData.localTime // Send formatted string directly
+          localTime: formData.localTime 
         }
       })
       setResult(response.data)
