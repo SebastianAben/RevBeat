@@ -54,102 +54,26 @@ const getWeather = async (lat, lon) => {
   }
 };
 
-// --- Helper: Spotify Auth ---
-const getSpotifyToken = async () => {
-  try {
-    const authString = Buffer.from(
-      `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
-    ).toString('base64');
+const mockTracks = require('./mockData.json');
 
-    const response = await axios.post(
-      'https://accounts.spotify.com/api/token',
-      new URLSearchParams({ grant_type: 'client_credentials' }),
-      {
-        headers: {
-          Authorization: `Basic ${authString}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      }
-    );
+// --- Helper: Get Recommendations (Mock) ---
+const getMockRecommendations = (targets, limit) => {
+  // Simple scoring: Distance from target valence/energy
+  // Lower score is better
+  const scoredTracks = mockTracks.map(track => {
+    const valenceDiff = Math.abs(track.features.valence - targets.targetValence);
+    const energyDiff = Math.abs(track.features.energy - targets.targetEnergy);
+    
+    // Bonus for genre match
+    const genreMatch = track.features.genres.some(g => targets.seedGenres.includes(g));
+    const genreBonus = genreMatch ? 0.2 : 0; // Subtract from distance if genre matches
 
-    return response.data.access_token;
-  } catch (error) {
-    console.error('Spotify Auth Error:', error.message);
-    throw new Error('Failed to authenticate with Spotify.');
-  }
-};
+    const distance = (valenceDiff + energyDiff) - genreBonus;
+    return { ...track, score: distance };
+  });
 
-// --- Helper: Calculate Audio Features ---
-const calculateAudioTargets = (weatherCode, mood, timeOfDay) => {
-  let targetValence = 0.5;
-  let targetEnergy = 0.5;
-  let seedGenres = ['pop']; // Default
-
-  // 1. Weather Impact
-  // Codes > 50 generally imply rain/drizzle/snow in WMO code
-  const isRaining = weatherCode >= 50; 
-  if (isRaining) {
-    targetValence -= 0.2; // Gloomy
-    targetEnergy -= 0.1;
-  } else {
-    targetValence += 0.1; // Sunny/Clear
-    targetEnergy += 0.1;
-  }
-
-  // 2. Mood Impact
-  const lowerMood = mood.toLowerCase();
-  if (lowerMood.includes('chill') || lowerMood.includes('relax')) {
-    targetEnergy = 0.3;
-    targetValence = 0.6;
-    seedGenres = ['chill', 'acoustic', 'ambient'];
-  } else if (lowerMood.includes('happy') || lowerMood.includes('party')) {
-    targetEnergy = 0.8;
-    targetValence = 0.9;
-    seedGenres = ['pop', 'dance', 'party'];
-  } else if (lowerMood.includes('focus') || lowerMood.includes('work')) {
-    targetEnergy = 0.4;
-    targetValence = 0.5;
-    seedGenres = ['classical', 'study', 'piano'];
-  } else if (lowerMood.includes('drive') || lowerMood.includes('road')) {
-    targetEnergy = 0.7;
-    targetValence = 0.6;
-    seedGenres = ['rock', 'road-trip', 'indie'];
-  }
-
-  // 3. Time of Day Impact (Simple heuristic)
-  const hour = parseInt(timeOfDay.split(':')[0], 10);
-  const isNight = hour >= 20 || hour <= 5;
-  
-  if (isNight) {
-    // Night drives often imply stable, slightly lower energy or atmospheric
-    targetEnergy = Math.max(0.2, targetEnergy - 0.1); 
-  }
-
-  // Clamp values 0-1
-  targetValence = Math.min(1, Math.max(0, targetValence));
-  targetEnergy = Math.min(1, Math.max(0, targetEnergy));
-
-  return { targetValence, targetEnergy, seedGenres };
-};
-
-// --- Helper: Get Recommendations ---
-const getSpotifyRecommendations = async (token, targets, limit) => {
-  try {
-    const response = await axios.get('https://api.spotify.com/v1/recommendations', {
-      headers: { Authorization: `Bearer ${token}` },
-      params: {
-        limit: limit,
-        seed_genres: targets.seedGenres.join(','),
-        target_valence: targets.targetValence,
-        target_energy: targets.targetEnergy,
-      },
-    });
-
-    return response.data.tracks;
-  } catch (error) {
-    console.error('Spotify Recs Error:', error.response?.data || error.message);
-    throw new Error('Failed to fetch recommendations.');
-  }
+  // Sort by score (ascending) and take top N
+  return scoredTracks.sort((a, b) => a.score - b.score).slice(0, limit);
 };
 
 // --- Main Endpoint ---
@@ -170,16 +94,12 @@ app.get('/api/recommend', async (req, res) => {
     // Step 3: Domain Logic - Target Features
     const targets = calculateAudioTargets(weather.weathercode, mood, localTime);
 
-    // Step 4: Catalog - Spotify
-    const token = await getSpotifyToken();
-    
+    // Step 4: Catalog - Mock Data
     // Calculate limit: avg song ~3.5min (210s). 
-    // duration is in minutes. 
     const limit = Math.ceil(parseInt(duration) * 60 / 210);
-    // Hard cap limit for Spotify API is 100, usually we want 10-20 for a playlist
     const safeLimit = Math.min(100, Math.max(1, limit));
 
-    const tracks = await getSpotifyRecommendations(token, targets, safeLimit);
+    const tracks = getMockRecommendations(targets, safeLimit);
 
     res.json({
       context: {
@@ -193,11 +113,11 @@ app.get('/api/recommend', async (req, res) => {
       tracks: tracks.map(t => ({
         id: t.id,
         name: t.name,
-        artist: t.artists.map(a => a.name).join(', '),
-        album: t.album.name,
-        image: t.album.images[0]?.url,
-        preview_url: t.preview_url,
-        spotify_url: t.external_urls.spotify
+        artist: t.artist,
+        album: "RevBeat Originals",
+        image: t.image,
+        preview_url: null, // No preview for mock
+        spotify_url: t.url
       }))
     });
 

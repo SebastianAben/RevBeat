@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "name": "Glimpse of Us",
+    "artist": "Joji",
+    "image": "https://placehold.co/300?text=Glimpse+of+Us",
+    "url": "https://open.spotify.com/track/6xGruZOHLs39ZbVccQTuPZ",
+    "features": { "valence": 0.2, "energy": 0.3, "genres": ["sad", "ballad"] }
+  },
+  {
+    "id": "2",
+    "name": "Hati-Hati di Jalan",
+    "artist": "Tulus",
+    "image": "https://placehold.co/300?text=Hati-Hati+di+Jalan",
+    "url": "https://open.spotify.com/track/2858dG5p9wJ8X7k5K5z8kS",
+    "features": { "valence": 0.3, "energy": 0.4, "genres": ["sad", "indonesian-pop"] }
+  },
+  {
+    "id": "3",
+    "name": "Easy On Me",
+    "artist": "Adele",
+    "image": "https://placehold.co/300?text=Easy+On+Me",
+    "url": "https://open.spotify.com/track/0gplL1WMoJ6iL1ZJVj3k7W",
+    "features": { "valence": 0.25, "energy": 0.35, "genres": ["ballad", "soul"] }
+  },
+  {
+    "id": "4",
+    "name": "To The Bone",
+    "artist": "Pamungkas",
+    "image": "https://placehold.co/300?text=To+The+Bone",
+    "url": "https://open.spotify.com/track/25j3fS1Zz7K01w15456456",
+    "features": { "valence": 0.35, "energy": 0.4, "genres": ["indonesian-indie", "chill"] }
+  },
+  {
+    "id": "5",
+    "name": "Sial",
+    "artist": "Mahalini",
+    "image": "https://placehold.co/300?text=Sial",
+    "url": "https://open.spotify.com/track/5sial123123",
+    "features": { "valence": 0.2, "energy": 0.45, "genres": ["indonesian-pop", "sad"] }
+  },
+  {
+    "id": "6",
+    "name": "Someone You Loved",
+    "artist": "Lewis Capaldi",
+    "image": "https://placehold.co/300?text=Someone+You+Loved",
+    "url": "https://open.spotify.com/track/7qEHsqek33rTcFNT9PFqLf",
+    "features": { "valence": 0.15, "energy": 0.3, "genres": ["sad", "piano"] }
+  },
+  {
+    "id": "7",
+    "name": "drivers license",
+    "artist": "Olivia Rodrigo",
+    "image": "https://placehold.co/300?text=drivers+license",
+    "url": "https://open.spotify.com/track/7lPN2DXiMsVn7XUKtOW1CS",
+    "features": { "valence": 0.2, "energy": 0.4, "genres": ["pop", "sad"] }
+  },
+  {
+    "id": "8",
+    "name": "Dan...",
+    "artist": "Sheila on 7",
+    "image": "https://placehold.co/300?text=Dan",
+    "url": "https://open.spotify.com/track/dan_so7",
+    "features": { "valence": 0.35, "energy": 0.45, "genres": ["indonesian-pop", "nostalgia"] }
+  },
+  {
+    "id": "9",
+    "name": "Happy",
+    "artist": "Pharrell Williams",
+    "image": "https://placehold.co/300?text=Happy",
+    "url": "https://open.spotify.com/track/60nZcImufyMA1KT4e0pks4",
+    "features": { "valence": 0.95, "energy": 0.8, "genres": ["happy", "pop"] }
+  },
+  {
+    "id": "10",
+    "name": "Uptown Funk",
+    "artist": "Mark Ronson ft. Bruno Mars",
+    "image": "https://placehold.co/300?text=Uptown+Funk",
+    "url": "https://open.spotify.com/track/32OlwWuMpZ6b0aN2RZOeMS",
+    "features": { "valence": 0.9, "energy": 0.9, "genres": ["funk", "party"] }
+  },
+  {
+    "id": "11",
+    "name": "Selamat Pagi",
+    "artist": "RAN",
+    "image": "https://placehold.co/300?text=Selamat+Pagi",
+    "url": "https://open.spotify.com/track/ran_pagi",
+    "features": { "valence": 0.85, "energy": 0.85, "genres": ["indonesian-pop", "happy"] }
+  },
+  {
+    "id": "12",
+    "name": "Dynamite",
+    "artist": "BTS",
+    "image": "https://placehold.co/300?text=Dynamite",
+    "url": "https://open.spotify.com/track/0t1kP63rueHleOhQkYSXFY",
+    "features": { "valence": 0.8, "energy": 0.9, "genres": ["k-pop", "party"] }
+  },
+  {
+    "id": "13",
+    "name": "Can't Stop the Feeling!",
+    "artist": "Justin Timberlake",
+    "image": "https://placehold.co/300?text=Cant+Stop+The+Feeling",
+    "url": "https://open.spotify.com/track/1WkMMvw4IGtpEB0XGnC87a",
+    "features": { "valence": 0.9, "energy": 0.85, "genres": ["happy", "dance"] }
+  },
+  {
+    "id": "14",
+    "name": "Siapkah Kau 'Tuk Jatuh Cinta Lagi",
+    "artist": "HiVi!",
+    "image": "https://placehold.co/300?text=HiVi",
+    "url": "https://open.spotify.com/track/hivi_jatuh_cinta",
+    "features": { "valence": 0.8, "energy": 0.75, "genres": ["indonesian-pop", "happy"] }
+  },
+  {
+    "id": "15",
+    "name": "Levitating",
+    "artist": "Dua Lipa",
+    "image": "https://placehold.co/300?text=Levitating",
+    "url": "https://open.spotify.com/track/463CkQjx2Zk1yXoBuierM9",
+    "features": { "valence": 0.75, "energy": 0.8, "genres": ["pop", "dance"] }
+  },
+  {
+    "id": "16",
+    "name": "Manusia Kuat",
+    "artist": "Tulus",
+    "image": "https://placehold.co/300?text=Manusia+Kuat",
+    "url": "https://open.spotify.com/track/tulus_manusia",
+    "features": { "valence": 0.7, "energy": 0.75, "genres": ["indonesian-pop", "motivation"] }
+  },
+  {
+    "id": "17",
+    "name": "Blinding Lights",
+    "artist": "The Weeknd",
+    "image": "https://placehold.co/300?text=Blinding+Lights",
+    "url": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b",
+    "features": { "valence": 0.5, "energy": 0.85, "genres": ["synthwave", "drive"] }
+  },
+  {
+    "id": "18",
+    "name": "Do I Wanna Know?",
+    "artist": "Arctic Monkeys",
+    "image": "https://placehold.co/300?text=Do+I+Wanna+Know",
+    "url": "https://open.spotify.com/track/5FVd6KXrgO9B3JPmC8OPst",
+    "features": { "valence": 0.45, "energy": 0.7, "genres": ["rock", "drive"] }
+  },
+  {
+    "id": "19",
+    "name": "Heat Waves",
+    "artist": "Glass Animals",
+    "image": "https://placehold.co/300?text=Heat+Waves",
+    "url": "https://open.spotify.com/track/3USxtqRwSYz57Ewm6wWRMp",
+    "features": { "valence": 0.55, "energy": 0.75, "genres": ["alternative", "drive"] }
+  },
+  {
+    "id": "20",
+    "name": "Get Lucky",
+    "artist": "Daft Punk",
+    "image": "https://placehold.co/300?text=Get+Lucky",
+    "url": "https://open.spotify.com/track/69kOkLUCkxIZYexIgSG8rq",
+    "features": { "valence": 0.6, "energy": 0.8, "genres": ["disco", "drive"] }
+  },
+  {
+    "id": "21",
+    "name": "Melompat Lebih Tinggi",
+    "artist": "Sheila on 7",
+    "image": "https://placehold.co/300?text=Melompat+Lebih+Tinggi",
+    "url": "https://open.spotify.com/track/so7_melompat",
+    "features": { "valence": 0.6, "energy": 0.85, "genres": ["indonesian-rock", "drive"] }
+  },
+  {
+    "id": "22",
+    "name": "As It Was",
+    "artist": "Harry Styles",
+    "image": "https://placehold.co/300?text=As+It+Was",
+    "url": "https://open.spotify.com/track/4LRPiXqCikZn525dX9W19c",
+    "features": { "valence": 0.6, "energy": 0.75, "genres": ["pop", "drive"] }
+  },
+  {
+    "id": "23",
+    "name": "Sweater Weather",
+    "artist": "The Neighbourhood",
+    "image": "https://placehold.co/300?text=Sweater+Weather",
+    "url": "https://open.spotify.com/track/2QjOHCTQ1Jl3zawyYOpxh6",
+    "features": { "valence": 0.4, "energy": 0.65, "genres": ["alternative", "cool"] }
+  },
+  {
+    "id": "24",
+    "name": "Gemintang Hatiku",
+    "artist": "Tiara Andini",
+    "image": "https://placehold.co/300?text=Gemintang+Hatiku",
+    "url": "https://open.spotify.com/track/tiara_gemintang",
+    "features": { "valence": 0.6, "energy": 0.8, "genres": ["indonesian-pop", "drive"] }
+  },
+  {
+    "id": "25",
+    "name": "Perfect",
+    "artist": "Ed Sheeran",
+    "image": "https://placehold.co/300?text=Perfect",
+    "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+    "features": { "valence": 0.4, "energy": 0.4, "genres": ["ballad", "chill"] }
+  },
+  {
+    "id": "26",
+    "name": "Akad",
+    "artist": "Payung Teduh",
+    "image": "https://placehold.co/300?text=Akad",
+    "url": "https://open.spotify.com/track/payung_akad",
+    "features": { "valence": 0.5, "energy": 0.45, "genres": ["indonesian-indie", "chill"] }
+  },
+  {
+    "id": "27",
+    "name": "Bitterlove",
+    "artist": "Ardhito Pramono",
+    "image": "https://placehold.co/300?text=Bitterlove",
+    "url": "https://open.spotify.com/track/ardhito_bitterlove",
+    "features": { "valence": 0.55, "energy": 0.4, "genres": ["jazz", "chill"] }
+  },
+  {
+    "id": "28",
+    "name": "Gravity",
+    "artist": "John Mayer",
+    "image": "https://placehold.co/300?text=Gravity",
+    "url": "https://open.spotify.com/track/3SktMqZmo3M9zbBt7aIDyH",
+    "features": { "valence": 0.4, "energy": 0.35, "genres": ["blues", "relax"] }
+  },
+  {
+    "id": "29",
+    "name": "Bertaut",
+    "artist": "Nadin Amizah",
+    "image": "https://placehold.co/300?text=Bertaut",
+    "url": "https://open.spotify.com/track/nadin_bertaut",
+    "features": { "valence": 0.35, "energy": 0.3, "genres": ["indonesian-indie", "focus"] }
+  },
+  {
+    "id": "30",
+    "name": "Rehat",
+    "artist": "Kunto Aji",
+    "image": "https://placehold.co/300?text=Rehat",
+    "url": "https://open.spotify.com/track/kunto_rehat",
+    "features": { "valence": 0.45, "energy": 0.4, "genres": ["indonesian-indie", "healing"] }
+  }
+]
