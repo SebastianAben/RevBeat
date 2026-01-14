@@ -54,6 +54,59 @@ const getWeather = async (lat, lon) => {
   }
 };
 
+// --- Helper: Calculate Audio Features ---
+const calculateAudioTargets = (weatherCode, mood, timeOfDay) => {
+  let targetValence = 0.5;
+  let targetEnergy = 0.5;
+  let seedGenres = ['pop']; // Default
+
+  // 1. Weather Impact
+  // Codes > 50 generally imply rain/drizzle/snow in WMO code
+  const isRaining = weatherCode >= 50; 
+  if (isRaining) {
+    targetValence -= 0.2; // Gloomy
+    targetEnergy -= 0.1;
+  } else {
+    targetValence += 0.1; // Sunny/Clear
+    targetEnergy += 0.1;
+  }
+
+  // 2. Mood Impact
+  const lowerMood = mood.toLowerCase();
+  if (lowerMood.includes('chill') || lowerMood.includes('relax')) {
+    targetEnergy = 0.3;
+    targetValence = 0.6;
+    seedGenres = ['chill', 'acoustic', 'ambient'];
+  } else if (lowerMood.includes('happy') || lowerMood.includes('party')) {
+    targetEnergy = 0.8;
+    targetValence = 0.9;
+    seedGenres = ['pop', 'dance', 'party'];
+  } else if (lowerMood.includes('focus') || lowerMood.includes('work')) {
+    targetEnergy = 0.4;
+    targetValence = 0.5;
+    seedGenres = ['classical', 'study', 'piano'];
+  } else if (lowerMood.includes('drive') || lowerMood.includes('road')) {
+    targetEnergy = 0.7;
+    targetValence = 0.6;
+    seedGenres = ['rock', 'road-trip', 'indie'];
+  }
+
+  // 3. Time of Day Impact (Simple heuristic)
+  const hour = parseInt(timeOfDay.split(':')[0], 10);
+  const isNight = hour >= 20 || hour <= 5;
+  
+  if (isNight) {
+    // Night drives often imply stable, slightly lower energy or atmospheric
+    targetEnergy = Math.max(0.2, targetEnergy - 0.1); 
+  }
+
+  // Clamp values 0-1
+  targetValence = Math.min(1, Math.max(0, targetValence));
+  targetEnergy = Math.min(1, Math.max(0, targetEnergy));
+
+  return { targetValence, targetEnergy, seedGenres };
+};
+
 const mockTracks = require('./mockData.json');
 
 // --- Helper: Get Recommendations (Mock) ---
